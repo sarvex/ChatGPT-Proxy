@@ -63,7 +63,7 @@ def conversation(subpath: str):
         # Send request to OpenAI
         if request.method == "POST":
             response = session.post(
-                url="https://chat.openai.com/" + subpath,
+                url=f"https://chat.openai.com/{subpath}",
                 headers=headers,
                 cookies=cookies,
                 data=json.dumps(request.get_json()),
@@ -71,7 +71,7 @@ def conversation(subpath: str):
             )
         elif request.method == "GET":
             response = session.get(
-                url="https://chat.openai.com/" + subpath,
+                url=f"https://chat.openai.com/{subpath}",
                 headers=headers,
                 cookies=cookies,
                 timeout_seconds=360,
